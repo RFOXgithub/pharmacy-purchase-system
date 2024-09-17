@@ -5,10 +5,7 @@
 
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Login - Fasilkom Asset Inventory Management</title>
-	<meta name="description" content="Fasilkom Asset Inventory Management">
-	<meta name="author" content="Budi Mukhamad Mulyo">
-	<meta name="keyword" content="Fasilkom, asset inventory, asset tracking">
+	<title>Login - Toko Alat Kesehatan</title>
 	<!-- end: Meta -->
 
 	<!-- start: Mobile Specific -->
@@ -35,8 +32,8 @@
 		.h1 {
 			font-size: 18px;
 			font-family: verdana;
-			font-style: oblique;
-			color: #666666
+			color: #666666;
+			margin-left: 65px;
 		}
 	</style>
 
@@ -50,39 +47,49 @@
 
 			<div class="row-fluid">
 				<div class="login-box">
-					<div class="icons">
-						<a href="<?php echo base_url(); ?>"><i class="halflings-icon home"></i></a>
 
-					</div>
-					<div align="center">
-						<img src="<?php echo base_url(); ?>img/logo_bnsp.jpg" height="150" width="200">
-						<br><br>
-						<h1 class="h1">Selamat Datang di Toko Alat Kesehatan</h1>
+					<div style="display: flex; align-items: center; justify-content: left; text-align: center;">
+						<img src="<?php echo base_url(); ?>img/logo_bnsp.jpg" height="150" width="200" style="margin-right: 20px;">
+						<h1 class="h1">Selamat Datang di <br> Toko Alat Kesehatan</h1>
 					</div>
 
-					<?php echo form_open('login/process_login'); ?>
+					<?php echo form_open('authentication/process_login'); ?>
 
 					<?php
 					$message = $this->session->flashdata('message');
 					echo $message == '' ? '' : '<p id="message">' . $message . '</p>';
 					?>
 
-					<div class="input-prepend" title="Username">
-						<span class="add-on"><i class="halflings-icon user"></i></span>
-						<input class="input-large span10" name="nik" id="username" type="text" placeholder="NIK" style="font-color:black !important;color:black !important;" />
+					<div style="display: flex; align-items: center;">
+						<label for="username" style="width: 75px; margin-left: 75px;">User ID : </label>
+						<div class="input-prepend" title="Username" style="flex-grow: 1;">
+							<span class="add-on"><i class="halflings-icon user"></i></span>
+							<input class="input-large span10" name="username" id="username" type="text" placeholder="User ID" style="font-color:black !important; color:black !important;" />
+						</div>
 					</div>
 
-					<div class="input-prepend" title="Password">
-						<span class="add-on"><i class="halflings-icon lock"></i></span>
-						<input class="input-large span10" name="password" id="password" type="password" placeholder="Password" style="font-color:black !important;color:black !important;" />
+					<div style="display: flex; align-items: center;">
+						<label for="password" style="width: 75px; margin-left: 75px;">Password</label>
+						<div class="input-prepend" title="Password" style="flex-grow: 1;">
+							<span class="add-on"><i class="halflings-icon lock"></i></span>
+							<input class="input-large span10" name="password" id="password" type="password" placeholder="Password" style="font-color:black !important; color:black !important;" />
+						</div>
 					</div>
+
 					<div class="clearfix"></div>
-
-					<div class="button-login">
-						<button type="submit" class="btn btn-primary">Login</button>
+					<div style="display: flex; justify-content: center; align-items: center;">
+						<button type="submit" class="btn btn-primary" style="width: 100px;">Login</button>
+					</div>
+					<div style="display: flex; justify-content: center; align-items: center; margin-top:5px;">
+						<a href="<?php echo site_url('authentication/register'); ?>" style="line-height: 40px;">Belum ada akun? Daftar disini</a>
 					</div>
 
-					<div class="clearfix"></div>
+
+
+
+
+					<div class=" clearfix">
+					</div>
 					<?php echo form_close(); ?>
 				</div>
 				<!--/span-->

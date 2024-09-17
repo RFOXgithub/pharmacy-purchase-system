@@ -2034,10 +2034,9 @@ fieldset[disabled] .btn-link:focus {
 =================================================================== */
 
 .login-box {
-	width: 400px;
+	width: 550px;
 	margin: 100px auto;
-	background: rgb(245,245,245); /* Old browsers */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: rgb(46, 12, 12); 
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y1ZjVmNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE5JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc3JSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNWY1ZjUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 	background: -moz-linear-gradient(top,  rgba(245,245,245,1) 0%, rgba(255,255,255,1) 19%, rgba(255,255,255,1) 77%, rgba(245,245,245,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(245,245,245,1)), color-stop(19%,rgba(255,255,255,1)), color-stop(77%,rgba(255,255,255,1)), color-stop(100%,rgba(245,245,245,1))); /* Chrome,Safari4+ */
@@ -2096,7 +2095,7 @@ fieldset[disabled] .btn-link:focus {
 	background: #fff;
 	width: 100%;
 	text-align: center;
-	padding: 15px 0px;
+	padding: 5px 0px;
 	border-left: 3px solid #fff;
 }
 
@@ -2104,7 +2103,7 @@ fieldset[disabled] .btn-link:focus {
 	background: #fcfcfc;
 	width: 100%;
 	text-align: center;
-	padding: 15px 0px;
+	padding: 5px 0px;
 	border-left: 3px solid #646464;
 }
 
@@ -2137,9 +2136,8 @@ fieldset[disabled] .btn-link:focus {
 }
 
 .login-box .button-login {
-	margin-top: 20px;
-	margin-right: 20px;
-	float: right;
+	margin-left: 10px;
+	float: inline-start;
 }
 
 /* UI - Uniform
@@ -3011,4 +3009,48 @@ ul.messagesList li span.date {
 }
 .navbar .brand{
 	font-size: 35px;
+}
+
+.centered-buttons {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.centered-buttons .btn {
+	margin: 0 15px;
+}
+
+.registration-form {
+	max-width: 500px;
+	margin: 50px auto;
+	padding: 20px;
+	background-color: #f9f9f9;
+}
+.registration-form h2 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+.form-group {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+}
+.form-group label {
+	flex: 1;
+	margin-right: 10px;
+	font-weight: bold;
+}
+.form-group .form-control {
+	flex: 2;
+	border: none;
+	border-bottom: 2px solid #007bff;
+	border-radius: 0;
+	box-shadow: none; 
+	padding: 10px 0;
+	margin-bottom: 10px;
+}
+.form-group .form-control:focus {
+	border-bottom-color: #0056b3;
+	box-shadow: none;
 }
