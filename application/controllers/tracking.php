@@ -11,7 +11,7 @@ class Tracking extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Product Page";
+        $data['title'] = "Tracking Page";
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/nav');

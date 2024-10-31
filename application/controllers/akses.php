@@ -11,6 +11,7 @@ class Akses extends CI_Controller
 
     public function index()
     {
+        $data['title'] = "Akses Page";
         $data['akses'] = $this->authentication_model->selectAll();
 
         $this->load->view('layout/header', $data);
@@ -21,6 +22,7 @@ class Akses extends CI_Controller
 
     public function index_akun()
     {
+        $data['title'] = "User Page";
         $data['akun'] = $this->authentication_model->selectAll();
 
         $this->load->view('layout/header', $data);
@@ -43,7 +45,7 @@ class Akses extends CI_Controller
 
     function edit($id)
     {
-        $data['title'] = "Akses Pengguna";
+        $data['title'] = "Ubah Akses Pengguna";
         $data['subtitle'] = "Ubah Akses Pengguna";
 
         $this->load->view('layout/header', $data);
