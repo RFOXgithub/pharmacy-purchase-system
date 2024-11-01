@@ -19,6 +19,8 @@ class Produk extends CI_Controller
         $data['title'] = "Product Page";
         $data['product'] = $this->produk_model->getAllProduct();
 
+        $data['kategori_options'] = $this->produk_model->getKategoriOptions();
+
         if ($this->id_akun) {
             $data['totalQuantity'] = $this->cart_model->getTotalCartQuantity($this->id_akun);
         } else {
@@ -65,6 +67,8 @@ class Produk extends CI_Controller
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/nav');
+
+        $data['kategori_options'] = $this->produk_model->getKategoriOptions();
 
         $config['upload_path']   = './img/produk_upload/';
         $config['allowed_types'] = 'jpeg|jpg|png';

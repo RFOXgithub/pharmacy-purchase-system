@@ -19,6 +19,12 @@
                             </div>
                         </div>
                         <div class="control-group">
+                            <label class="control-label">Kategori</label>
+                            <div class="controls">
+                                <?= form_dropdown('id_kategori', $kategori_options, set_value('id_kategori', htmlspecialchars($produk->id_kategori, ENT_QUOTES))); ?>
+                            </div>
+                        </div>
+                        <div class="control-group">
                             <label class="control-label">Harga</label>
                             <div class="controls">
                                 <input type="number" class="span6" name="harga" value="<?= htmlspecialchars($produk->harga, ENT_QUOTES); ?>" required />

@@ -28,6 +28,9 @@
                                 <div align="center">Nama Produk</div>
                             </th>
                             <th>
+                                <div align="center">Kategory</div>
+                            </th>
+                            <th>
                                 <div align="center">Harga</div>
                             </th>
                             <th>
@@ -47,6 +50,7 @@
                             <?php foreach ($product as $row): ?>
                                 <td><?php echo $i++ ?></td>
                                 <td><?php echo $row->nama_produk; ?></td>
+                                <td><?php echo $row->nama_kategori; ?></td>
                                 <td><?php echo 'Rp ' . number_format($row->harga, 0, ',', '.'); ?></td>
                                 <td><?php echo $row->jumlah; ?></td>
                                 <td>

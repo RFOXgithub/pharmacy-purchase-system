@@ -21,28 +21,28 @@ class Kategori extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('layout/nav');
         $data['kategori'] = $this->kategori_model->selectAll();
-        $this->load->view('kategori/kategori', $data);
+        $this->load->view('nav/kategori', $data);
         $this->load->view('layout/footer');
     }
 
     function add()
     {
-        $data['title'] = "Tambah Kategori Aset";
-        $data['subtitle'] = "Tambah Kategori Aset";
-        $this->load->view('header', $data);
-        $this->load->view('nav');
+        $data['title'] = "Tambah Kategori";
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/nav');
         if ($_POST == NULL) {
-            $this->load->view('kategori/add_kategori');
-            $this->load->view('footer');
+            $this->load->view('nav/kategori_add');
+            $this->load->view('layout/footer');
         } else {
-            $this->kategori_m->insert($_POST);
+            $this->kategori_model->insert($_POST);
             redirect('kategori');
         }
     }
 
     function delete($id)
     {
-        $this->kategori_m->delete($id);
+        $this->kategori_model->delete($id);
         redirect('kategori');
     }
 
@@ -50,14 +50,14 @@ class Kategori extends CI_Controller
     {
         $data['title'] = "Ubah Kategori Aset";
         $data['subtitle'] = "Ubah Kategori Aset";
-        $this->load->view('header', $data);
-        $this->load->view('nav');
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/nav');
         if ($_POST == NULL) {
-            $data['kategori'] = $this->kategori_m->select($id);
-            $this->load->view('kategori/edit_kategori', $data);
-            $this->load->view('footer');
+            $data['kategori'] = $this->kategori_model->select($id);
+            $this->load->view('nav/kategori_edit', $data);
+            $this->load->view('layout/footer');
         } else {
-            $this->kategori_m->update($id);
+            $this->kategori_model->update($id);
             redirect('kategori');
         }
     }

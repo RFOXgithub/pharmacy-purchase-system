@@ -11,15 +11,24 @@ class Produk_model extends CI_Model
 
     public function getAllProduct()
     {
-        $query = $this->db->get($this->table);
+        $this->db->select('produk.*, kategori.nama_kategori');
+        $this->db->from($this->table);
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        $query = $this->db->get();
         return $query->result_array();
     }
 
+
     public function getAllKatalog()
     {
-        $query = $this->db->get($this->table);
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori');
+
+        $query = $this->db->get();
         return $query->result();
     }
+
 
     function getProductById($id)
     {
@@ -65,11 +74,17 @@ class Produk_model extends CI_Model
         $this->db->where('id_produk', $id);
         $this->db->delete('produk');
     }
-
     function select($id)
     {
-        return $this->db->get_where('produk', array('id_produk' => $id))->row();
+        $this->db->select('produk.*, kategori.nama_kategori');
+        $this->db->from('produk');
+        $this->db->join('kategori', 'produk.id_kategori = kategori.id_kategori');
+        $this->db->where('produk.id_produk', $id);
+        $query = $this->db->get();
+
+        return $query->row();
     }
+
 
     function update($id, $gambar)
     {
@@ -82,5 +97,20 @@ class Produk_model extends CI_Model
         }
 
         $this->db->where('id_produk', $id)->update('produk', $data);
+    }
+
+    public function getKategoriOptions()
+    {
+        $this->db->select('*');
+        $this->db->from('kategori');
+        $this->db->order_by('nama_kategori', 'ASC');
+        $query = $this->db->get();
+
+        $options = array();
+        foreach ($query->result_array() as $row) {
+            $options[$row['id_kategori']] = $row['nama_kategori'];
+        }
+
+        return $options;
     }
 }

@@ -17,6 +17,14 @@
 
             <div class="filter-section text-right" style="margin: 10px 45px 20px 10px;">
                 <input type="text" id="search-name" placeholder="Cari berdasarkan nama..." onkeyup="filterProducts()">
+
+                <select id="filter-category" onchange="filterProducts()">
+                    <option value="">Pilih Kategori</option>
+                    <?php foreach ($kategori_options as $id => $nama): ?>
+                        <option value="<?= $id; ?>"><?= $nama; ?></option>
+                    <?php endforeach; ?>
+                </select>
+
                 <select id="filter-price" onchange="filterProducts()">
                     <option value="">Pilih Rentang Harga</option>
                     <option value="0-50000">0 - 50.000</option>
@@ -25,9 +33,8 @@
                     <option value="2010000+">2.000.000+</option>
                 </select>
             </div>
-
             <?php foreach ($product as $row) : ?>
-                <div class="span-card statbox product-item" data-name="<?php echo htmlspecialchars($row['nama_produk']); ?>" data-price="<?php echo htmlspecialchars($row['harga']); ?>" ontablet="span6" ondesktop="span2">
+                <div class="span-card statbox product-item" data-name="<?php echo htmlspecialchars($row['nama_produk']); ?>" data-category="<?php echo htmlspecialchars($row['id_kategori']); ?>" data-price="<?php echo htmlspecialchars($row['harga']); ?>" ontablet="span6" ondesktop="span2">
                     <img src="<?php echo htmlspecialchars($row['gambar']); ?>" alt="Gambar Produk" class="span-card-img img-fluid">
                     <h4 class="text-center"><?php echo htmlspecialchars($row['nama_produk']); ?></h4>
                     <h4 class="text-left harga-card"> - Harga: Rp <?php echo number_format($row['harga'], 0, ',', '.'); ?></h4>

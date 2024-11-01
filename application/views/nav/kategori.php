@@ -11,7 +11,7 @@
     ?>
 
     <div class="row-fluid sortable">
-        <div class="box span12">
+        <div class="box span11">
             <div class="box-header" data-original-title>
                 <h2><i class="icon-reorder"></i><span class="break"></span><?php echo $subtitle; ?></h2>
                 <div class="box-icon">
@@ -49,9 +49,7 @@
                                     <td>
                                         <div align="center">
                                             <?php echo anchor('kategori/edit/' . $row->id_kategori, '<i class="icon-edit"></i>', array('class' => 'btn btn-mini btn-success')); ?>
-                                            <a href="#" class="btn btn-mini btn-danger delete-btn" data-url="<?php echo site_url('kategori/delete/' . $row->id_kategori); ?>">
-                                                <i class="icon-trash"></i>
-                                            </a>
+                                            <?php echo anchor('kategori/delete/' . $row->id_kategori, '<i class="icon-trash"></i>', array('class' => 'btn btn-mini btn-danger')); ?>
                                         </div>
                                     </td>
                                 <?php endif; ?>
