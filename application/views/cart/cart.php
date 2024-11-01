@@ -66,6 +66,14 @@
                         </tr>
                     </tfoot>
                 </table>
+
+                <!-- Tombol Pembayaran -->
+                <div style="text-align: right;">
+                    <a href="<?php echo site_url('checkout/index/' . $row->id_produk); ?>" class="btn btn-success">
+                        <i class="icon-credit-card"></i> Bayar
+                    </a>
+                </div>
+
             </div>
         </div><!--/span-->
     </div><!--/row-->
