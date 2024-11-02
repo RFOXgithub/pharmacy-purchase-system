@@ -18,7 +18,7 @@ class checkout_model extends CI_Model
         ];
         $this->db->insert('checkout', $data);
 
-        $id_checkout = $this->db->insert_id();
+        $id_checkout = $this->db->insert_id(); 
 
         foreach ($cartItems as $item) {
             $dataDetail = [
@@ -32,7 +32,10 @@ class checkout_model extends CI_Model
         }
 
         $this->deleteCartItems($id_akun);
+
+        return $id_checkout; 
     }
+
 
     private function deleteCartItems($id_akun)
     {

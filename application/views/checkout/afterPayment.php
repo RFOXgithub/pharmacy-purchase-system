@@ -14,11 +14,6 @@
                         <p><strong>No HP:</strong> <?php echo htmlspecialchars($buyer->number); ?></p>
                     </div>
                     <br>
-                    <?php
-                    echo '<pre>';
-                    var_dump($payment_method);
-                    echo '</pre>';
-                    ?>
                     <div class="col-md-6">
                         <h3>RINCIAN PEMBAYARAN</h3>
                         <p><strong>Metode Pembayaran:</strong> <?php echo htmlspecialchars($payment_method->payment_method); ?></p>
@@ -26,11 +21,6 @@
                     </div>
                 </div>
                 <br>
-                <?php
-                echo '<pre>';
-                var_dump($checkoutItems);
-                echo '</pre>';
-                ?>
                 <h3>RINCIAN PEMBELIAN</h3>
                 <table class="table table-striped table-bordered">
                     <thead>

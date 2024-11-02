@@ -36,6 +36,11 @@ class Checkout extends CI_Controller
 
         $id_checkout = $this->session->userdata('id_checkout');
 
+        if (!$id_checkout) {
+            redirect('checkout'); 
+            return;
+        }
+
         $buyer = $this->authentication_model->select_by_real_id_query($this->id_akun);
         $checkoutItems = $this->checkout_model->selectAllCheckoutItemsUser($id_checkout);
         $payment_method = $this->checkout_model->getPaymentMethodByCheckoutId($id_checkout);
@@ -52,6 +57,7 @@ class Checkout extends CI_Controller
         $this->load->view('layout/footer');
     }
 
+
     public function konfirmasi()
     {
         if ($this->id_akun && $this->input->server('REQUEST_METHOD') === 'POST') {
@@ -61,7 +67,8 @@ class Checkout extends CI_Controller
             $cartItems = $this->cart_model->selectAllCartUser($this->id_akun);
 
             if ($cartItems) {
-                $this->checkout_model->insert($this->id_akun, $total_amount, $payment_method, $cartItems);
+                $id_checkout = $this->checkout_model->insert($this->id_akun, $total_amount, $payment_method, $cartItems);
+                $this->session->set_userdata('id_checkout', $id_checkout);
                 redirect('checkout/afterPayment');
             } else {
                 redirect('checkout');
