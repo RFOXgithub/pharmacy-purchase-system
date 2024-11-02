@@ -186,4 +186,18 @@ class Authentication_model extends CI_Model
             return null;
         }
     }
+
+    public function select_by_real_id_query($id_akun)
+    {
+        $this->db->select('*');
+        $this->db->from('akun');
+        $this->db->where('id_akun', $id_akun);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row();
+        } else {
+            return null;
+        }
+    }
 }

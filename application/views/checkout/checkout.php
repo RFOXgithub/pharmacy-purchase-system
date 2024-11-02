@@ -48,13 +48,13 @@
                         </label>
                         <div class="payment-details" id="debitCreditDetails" style="display: none; margin-top: 10px;">
                             <label>Nama di Kartu</label>
-                            <input type="text" name="card_name" class="form-control" placeholder="Nama lengkap" required>
+                            <input type="text" name="card_name" class="form-control" placeholder="Nama lengkap">
                             <label>Nomor Kartu</label>
-                            <input type="text" name="card_number" class="form-control" placeholder="1234 5678 9012 3456" required>
+                            <input type="text" name="card_number" class="form-control" placeholder="1234 5678 9012 3456">
                             <label>Expiration Date</label>
-                            <input type="text" name="card_expiration" class="form-control" placeholder="MM/YY" required>
+                            <input type="text" name="card_expiration" class="form-control" placeholder="MM/YY">
                             <label>CVV</label>
-                            <input type="text" name="card_cvv" class="form-control" placeholder="123" required>
+                            <input type="text" name="card_cvv" class="form-control" placeholder="123">
                         </div>
                     </div>
                     <div class="payment-method">
@@ -79,13 +79,19 @@
     document.querySelectorAll('input[name="payment_method"]').forEach((input) => {
         input.addEventListener('change', function() {
             const debitCreditDetails = document.getElementById('debitCreditDetails');
-            debitCreditDetails.style.display = this.value === 'Debit/Kredit' ? 'block' : 'none';
+            const isDebitCredit = this.value === 'Debit/Kredit';
+
+            debitCreditDetails.style.display = isDebitCredit ? 'block' : 'none';
+
+            document.querySelector('input[name="card_name"]').required = isDebitCredit;
+            document.querySelector('input[name="card_number"]').required = isDebitCredit;
+            document.querySelector('input[name="card_expiration"]').required = isDebitCredit;
+            document.querySelector('input[name="card_cvv"]').required = isDebitCredit;
         });
     });
 
     document.querySelector('form').addEventListener('submit', function(event) {
         const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
-        const debitCreditDetails = document.getElementById('debitCreditDetails');
 
         if (paymentMethod === 'Debit/Kredit') {
             const cardName = document.querySelector('input[name="card_name"]').value;

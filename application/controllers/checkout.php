@@ -34,11 +34,17 @@ class Checkout extends CI_Controller
     {
         $data['title'] = "Checkout Page";
 
-        if ($this->id_akun) {
-            $data['cartItems'] = $this->cart_model->selectAllCartUser($this->id_akun);
-        } else {
-            redirect('authentication');
-        }
+        $id_checkout = $this->session->userdata('id_checkout');
+
+        $buyer = $this->authentication_model->select_by_real_id_query($this->id_akun);
+        $checkoutItems = $this->checkout_model->selectAllCheckoutItemsUser($id_checkout);
+        $payment_method = $this->checkout_model->getPaymentMethodByCheckoutId($id_checkout);
+
+        $data = [
+            'buyer' => $buyer,
+            'checkoutItems' => $checkoutItems,
+            'payment_method' => $payment_method,
+        ];
 
         $this->load->view('layout/header', $data);
         $this->load->view('layout/nav');
@@ -52,10 +58,10 @@ class Checkout extends CI_Controller
             $total_amount = $this->input->post('total_amount');
             $payment_method = $this->input->post('payment_method');
 
-            $existingCartItem = $this->cart_model->selectAllCartUser($this->id_akun);
+            $cartItems = $this->cart_model->selectAllCartUser($this->id_akun);
 
-            if ($existingCartItem) {
-                $this->checkout_model->insert($this->id_akun, $total_amount, $payment_method);
+            if ($cartItems) {
+                $this->checkout_model->insert($this->id_akun, $total_amount, $payment_method, $cartItems);
                 redirect('checkout/afterPayment');
             } else {
                 redirect('checkout');
