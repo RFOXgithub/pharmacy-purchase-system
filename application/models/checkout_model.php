@@ -30,8 +30,14 @@ class checkout_model extends CI_Model
             ];
             $this->db->insert('checkout_detail', $dataDetail);
         }
+
+        $this->deleteCartItems($id_akun);
     }
 
+    private function deleteCartItems($id_akun)
+    {
+        $this->db->delete('cart', ['id_akun' => $id_akun]);
+    }
 
     function delete($id)
     {
