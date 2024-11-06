@@ -168,8 +168,6 @@ class Checkout extends CI_Controller
             $mail->Password = 'xrce kxnb uhkq qbuq';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
-          
-
 
             //Recipients
             $mail->setFrom('your-email@example.com', 'Your Name');
