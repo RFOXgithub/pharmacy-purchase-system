@@ -34,6 +34,31 @@ class Checkout extends CI_Controller
         $this->load->view('layout/footer');
     }
 
+    public function indexCheckoutAdmin()
+    {
+        $data['title'] = "Checkout Management Page";
+
+        $data['checkout'] = $this->checkout_model->getAllCheckoutData();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/nav');
+        $this->load->view('checkout/checkoutManagement', $data);
+        $this->load->view('layout/footer');
+    }
+
+    public function editDataCheckout()
+    {
+
+        $data['title'] = "Ubah Data Checkout";
+        $data['produk'] = $this->produk_model->select($id);
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('layout/nav');
+
+        $this->checkout_model->update($id);
+        redirect('produk/index_katalog');
+    }
+
     public function afterPayment()
     {
         $data['title'] = "Checkout Page";
@@ -242,7 +267,6 @@ class Checkout extends CI_Controller
     {
         $mail = new PHPMailer(true);
         try {
-            //Server settings
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
@@ -251,7 +275,6 @@ class Checkout extends CI_Controller
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            //Recipients
             $mail->setFrom('your-email@example.com', 'Vertikal Days');
             $mail->addAddress($email);
 
@@ -261,8 +284,7 @@ class Checkout extends CI_Controller
             $mail->Body = 'Terima kasih atas pembelian Anda. Berikut terlampir invoice Anda.';
             $mail->addAttachment($pdfFilePath);
 
-            // Send the email
-            if($mail->send()){
+            if ($mail->send()) {
                 redirect('authentication');
             };
         } catch (Exception $e) {

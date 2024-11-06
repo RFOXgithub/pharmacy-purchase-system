@@ -18,7 +18,7 @@ class checkout_model extends CI_Model
         ];
         $this->db->insert('checkout', $data);
 
-        $id_checkout = $this->db->insert_id(); 
+        $id_checkout = $this->db->insert_id();
 
         foreach ($cartItems as $item) {
             $dataDetail = [
@@ -33,7 +33,7 @@ class checkout_model extends CI_Model
 
         $this->deleteCartItems($id_akun);
 
-        return $id_checkout; 
+        return $id_checkout;
     }
 
 
@@ -76,5 +76,14 @@ class checkout_model extends CI_Model
             ->where('id_checkout', $id_checkout)
             ->get()
             ->row();
+    }
+
+    public function getAllCheckoutData()
+    {
+        return $this->db->select('*')
+            ->from('checkout')
+            ->join('akun', 'akun.id_akun = checkout.id_akun')
+            ->get()
+            ->result();
     }
 }
