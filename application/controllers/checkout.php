@@ -48,16 +48,62 @@ class Checkout extends CI_Controller
 
     public function editDataCheckout()
     {
+        $this->form_validation->set_rules('id_checkout', 'ID', 'required|numeric');
+        $this->form_validation->set_rules('payment_status', 'Status', 'required');
 
-        $data['title'] = "Ubah Data Checkout";
-        $data['produk'] = $this->produk_model->select($id);
+        if ($this->form_validation->run() == FALSE) {
+            $errors = validation_errors();
+            echo json_encode(array(
+                'status' => 'error',
+                'message' => $errors
+            ));
+            return;
+        }
 
-        $this->load->view('layout/header', $data);
-        $this->load->view('layout/nav');
+        $id_checkout = $this->input->post('id_checkout');
+        $status = $this->input->post('payment_status');
 
-        $this->checkout_model->update($id);
-        redirect('produk/index_katalog');
+        $checkout = $this->checkout_model->getCheckoutById($id_checkout);
+        if (!$checkout) {
+            echo json_encode(array(
+                'status' => 'error',
+                'message' => 'Data Checkout tidak ditemukan'
+            ));
+            return;
+        }
+
+        $result = $this->checkout_model->updateCheckout($id_checkout, $status);
+
+        if ($result) {
+            echo json_encode(array(
+                'status' => 'success',
+                'message' => 'Data berhasil diupdate'
+            ));
+        } else {
+            echo json_encode(array(
+                'status' => 'error',
+                'message' => 'Gagal mengupdate data'
+            ));
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function afterPayment()
     {

@@ -12,7 +12,6 @@
         2. Katalog tambah katalog
         3. Title afterPayment
         4. Sesuaikan Navigasi Admin
-        5. Lanjutkan Management Checkout
     </h3>
     <div class="row-fluid span10">
         <div class="box span11">

@@ -3,7 +3,11 @@
 
     <?php
     $nik = $this->session->userdata('username');
-    $pengguna = $this->authentication_model->dataPengguna($nik);
+    if ($nik) {
+        $pengguna = $this->authentication_model->dataPengguna($nik);
+    } else {
+        $pengguna = null;
+    }
     ?>
 
     <div class="row-fluid sortable">
@@ -40,23 +44,44 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <?php $i = 1 ?>
-                            <?php foreach ($checkout as $row): ?>
+                        <?php $i = 1 ?>
+                        <?php foreach ($checkout as $row): ?>
+                            <tr>
                                 <td><?php echo $i++ ?></td>
                                 <td><?php echo $row->email; ?></td>
                                 <td><?php echo 'Rp ' . number_format($row->total_amount, 0, ',', '.'); ?></td>
                                 <td><?php echo $row->checkout_Date; ?></td>
                                 <td><?php echo $row->payment_status; ?></td>
                                 <td>
-                                    <div align="center"><?php echo anchor('checkout/editDataCheckout/', '<i class="icon-edit"></i>', array('class' => 'btn btn-mini btn-success')) ?></div>
+                                    <?php if (in_array($pengguna->level, ["Admin"])) : ?>
+                                        <?php
+                                        $url = 'checkout/editDataCheckout/' . $row->id_checkout;
+
+                                        if ($pengguna->level === 'Admin' && $row->payment_status == 'Pending') {
+                                            echo '<button type="button" class="btn btn-mini btn-success editButton" 
+                                    data-url="' . base_url($url) . '"
+                                    data-id="' . $row->id_checkout . '"
+                                    data-status="' . $row->payment_status . '">
+                                    <i class="icon-edit"></i>
+                                </button>';
+                                                    } else {
+                                                        echo '<button type="button" class="btn btn-mini btn-success disabled">
+                                                <i class="icon-edit"></i>
+                                            </button>';
+                                        }
+                                        ?>
+                                    <?php endif; ?>
                                 </td>
-                        </tr>
-                    <?php endforeach ?>
+
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
         </div><!--/span-->
 
     </div><!--/row-->
+
+
+</div><!--/row-->
 </div><!--/.fluid-container-->

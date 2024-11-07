@@ -57,6 +57,7 @@
     <script src="<?php echo base_url() ?>js/custom.js"></script>
     <script src="<?php echo base_url() ?>js/script.js"></script>
     <script src="<?php echo base_url() ?>js/filter.js"></script>
+    <script src="<?php echo base_url('js/modalEdit.js'); ?>" defer></script>
 </head>
 
 <body>

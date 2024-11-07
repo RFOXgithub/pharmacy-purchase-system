@@ -83,7 +83,34 @@ class checkout_model extends CI_Model
         return $this->db->select('*')
             ->from('checkout')
             ->join('akun', 'akun.id_akun = checkout.id_akun')
+            ->order_by('checkout.payment_status', 'asc')
             ->get()
             ->result();
+    }
+
+    public function getCheckoutById($id_checkout)
+    {
+        $this->db->where('id_checkout', $id_checkout);
+        $query = $this->db->get('checkout');
+        return $query->row();
+    }
+
+    public function updateCheckout($id_checkout, $status)
+    {
+        $data = array(
+            'payment_status' => $status,
+        );
+
+        $this->db->where('id_checkout', $id_checkout);
+        $this->db->update('checkout', $data);
+
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
+            if ($this->db->affected_rows() === 0 && $this->db->last_query()) {
+                return true;
+            }
+            return false;
+        }
     }
 }
