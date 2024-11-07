@@ -9,9 +9,8 @@
     ?>
     <h3>ERROR :
         1. Katalog edit Gambar
-        2. Katalog tambah katalog
-        3. Title afterPayment
-        4. Sesuaikan Navigasi Admin
+        2. Title afterPayment
+        3. Sesuaikan Navigasi Admin
     </h3>
     <div class="row-fluid span10">
         <div class="box span11">
@@ -42,7 +41,7 @@
             </div>
             <?php foreach ($product as $row) : ?>
                 <div class="span-card statbox product-item" data-name="<?php echo htmlspecialchars($row['nama_produk']); ?>" data-category="<?php echo htmlspecialchars($row['id_kategori']); ?>" data-price="<?php echo htmlspecialchars($row['harga']); ?>" ontablet="span6" ondesktop="span2">
-                    <img src="<?php echo htmlspecialchars($row['gambar']); ?>" alt="Gambar Produk" class="span-card-img img-fluid">
+                    <img src="<?php echo base_url('lampiran/' . htmlspecialchars($row['gambar'])); ?>" alt="Gambar Produk" class="span-card-img img-fluid">
                     <h4 class="text-center"><?php echo htmlspecialchars($row['nama_produk']); ?></h4>
                     <h4 class="text-left harga-card"> - Harga: Rp <?php echo number_format($row['harga'], 0, ',', '.'); ?></h4>
                     <div class="footer">
