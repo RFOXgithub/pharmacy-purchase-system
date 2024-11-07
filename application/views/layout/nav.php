@@ -17,7 +17,7 @@
                 <li><a href="<?php echo base_url(); ?>kategori"><i class="icon-reorder"></i><span class="hidden-tablet"> Kategori</span></a></li>
                 <li><a href="<?php echo base_url(); ?>checkout/indexCheckoutAdmin"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Checkout</span></a></li>
                 <li>
-                    <a class="dropmenu" href="#"><i class="halflings-icon white chevron-right"></i><span class="hidden-tablet"> &nbsp;Pengguna</span></a>
+                    <a class="dropmenu" href="#"><i class="icon-arrow-right"></i><span class="hidden-tablet"> &nbsp;Pengguna</span></a>
                     <ul>
                         <li><a class="submenu" href="<?php echo base_url(); ?>akses/index_akun"><i class="icon-user"></i><span class="hidden-tablet"> &nbsp; User</span></a></li>
                         <li><a class="submenu" href="<?php echo base_url(); ?>akses"><i class="icon-key"></i><span class="hidden-tablet"> &nbsp; Akses</span></a></li>
