@@ -64,8 +64,6 @@
                                             <img src="<?php echo base_url(); ?>/<?php echo '/img/produk/' . $row->gambar ?>" style="width: 100px; height: auto;"><br>
                                         </div>
                                     </td>
-
-
                                     <td>
                                         <div align="center"><?php echo anchor('produk/editProduk/' . $row->id_produk, '<i class="icon-edit"></i>', array('class' => 'btn btn-mini btn-success')) . '  ' . anchor('produk/deleteProduk/' . $row->id_produk, '<i class="icon-trash"></i>', array('class' => 'btn btn-mini btn-danger', 'onclick' => "return confirm('Are you sure to delete this item?')")); ?></div>
                                     </td>

@@ -115,7 +115,7 @@ class Checkout extends CI_Controller
         $data['title'] = "Checkout Page";
 
         $this->load->view('layout/header', $data);
-        $this->load->view('layout/nav');
+        $this->load->view('layout/navEmpty');
         $this->load->view('checkout/afterPayment', $data);
         $this->load->view('layout/footer');
     }
