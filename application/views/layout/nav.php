@@ -1,4 +1,4 @@
-<div id="sidebar-left" class="span3">
+<div id="sidebar-left" class="span3" style="position: fixed;">
     <div class="nav-collapse sidebar-nav">
         <ul class="nav nav-tabs nav-stacked main-menu">
             <?php

@@ -62,7 +62,7 @@
 
 <body>
     <!-- start: Header -->
-    <div class="navbar">
+    <div class="navbar" style="position: fixed; top: 0; width: 100%; z-index: 1000;">
         <div class="navbar-inner">
             <div class="container-fluid">
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
@@ -70,7 +70,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>img/logo_bnsp_cutted.jpg" width="200" /></a>
+                <a class="brand"><img src="<?php echo base_url(); ?>img/logo_bnsp_cutted.jpg" width="200" /></a>
 
                 <!-- start: Header Menu -->
                 <div class="nav-no-collapse header-nav">
@@ -122,6 +122,25 @@
         </div>
     </div>
     <!-- start: Header -->
+
+    <div class="navbar">
+        <div class="navbar-inner" style="background-color: #555555;">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                    <a class="brand" href="<?php echo base_url(); ?>" style="opacity: 0;">
+                        <img src="<?php echo base_url(); ?>img/logo_bnsp_cutted.jpg" width="200" />
+                    </a>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <!-- start: Header Menu -->
+                <!-- end: Header Menu -->
+
+            </div>
+        </div>
+    </div>
 
     <div class="container-fluid-full">
         <div class="row-fluid"></div>
