@@ -17,8 +17,19 @@ class Produk extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Product Page";
+        # $start_time = microtime(true);
         $data['product'] = $this->produk_model->getAllProduct();
+        # $end_time = microtime(true);
+         #$execution_time = $end_time - $start_time;
+         #echo "Execution Time: " . $execution_time . " seconds";
+
+         #$start_memory = memory_get_usage();
+         #$end_memory = memory_get_usage();
+         #$memory_used = $end_memory - $start_memory;
+         #echo "Memory Usage: " . $memory_used . " bytes";
+        #exit();
+
+        $data['title'] = "Product Page";
 
         $data['kategori_options'] = $this->produk_model->getKategoriOptions();
 
@@ -33,6 +44,7 @@ class Produk extends CI_Controller
         $this->load->view('home/home', $data);
         $this->load->view('layout/footer');
     }
+
 
     public function index_katalog()
     {
