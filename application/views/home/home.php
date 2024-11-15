@@ -12,6 +12,7 @@
             <div class="box-header">
                 <h2><i class="icon-home"></i><span class="break"></span>Beranda</h2>
             </div>
+
             <div class="page-header text-center">
                 <h1>Daftar Produk Toko Alat Kesehatan</h1>
             </div>

@@ -86,4 +86,10 @@ class Cart_model extends CI_Model
             ->row()
             ->quantity;
     }
+
+    public function updateProductStock($product_id, $remainingQuantity)
+    {
+        $this->db->where('id_produk', $product_id);
+        $this->db->update('produk', ['jumlah' => $remainingQuantity]);
+    }
 }

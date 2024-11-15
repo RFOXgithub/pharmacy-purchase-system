@@ -16,7 +16,7 @@
                 <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <div class="control-group">
-                            <label class="control-label">Nama Aset</label>
+                            <label class="control-label">Nama Produk</label>
                             <div class="controls">
                                 <input type="text" class="span6" name="nama_produk" />
                             </div>

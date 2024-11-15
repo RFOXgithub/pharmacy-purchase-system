@@ -130,6 +130,17 @@ class Checkout extends CI_Controller
             $cartItems = $this->cart_model->selectAllCartUser($this->id_akun);
 
             if ($cartItems) {
+                foreach ($cartItems as $row) {
+                    $remainingQuantity = $row->jumlah - $row->quantity;
+
+                    if ($remainingQuantity < 0) {
+                        $this->session->set_flashdata('error', 'Stok tidak mencukupi untuk produk ' . $row->nama_produk);
+                        redirect('checkout');
+                        return;
+                    }
+                    $this->cart_model->updateProductStock($row->id_produk, $remainingQuantity);
+                }
+
                 $id_checkout = $this->checkout_model->insert($this->id_akun, $total_amount, $payment_method, $cartItems);
                 $this->session->set_userdata('id_checkout', $id_checkout);
                 redirect('checkout/afterPayment');

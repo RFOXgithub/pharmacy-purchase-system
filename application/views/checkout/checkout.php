@@ -19,6 +19,9 @@
                     <tbody>
                         <?php $totalPrice = 0; ?>
                         <?php foreach ($cartItems as $row): ?>
+                            <?php
+                            $remainingQuantity = $row->jumlah - $row->quantity;
+                            ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($row->nama_produk); ?></td>
                                 <td><?php echo $row->quantity; ?></td>
