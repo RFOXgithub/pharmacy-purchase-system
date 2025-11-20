@@ -254,9 +254,27 @@ INSERT INTO `produk` (`id_produk`, `id_kategori`, `nama_produk`, `harga`, `jumla
 --
 -- Structure for view `checkoutview`
 --
-DROP TABLE IF EXISTS `checkoutview`;
+DROP TABLE IF EXISTS checkoutview;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `checkoutview`  AS SELECT `checkout`.`id_checkout` AS `id_checkout`, `checkout`.`id_akun` AS `id_akun`, `checkout`.`total_amount` AS `total_amount`, `checkout`.`payment_status` AS `payment_status`, `checkout`.`checkout_Date` AS `checkout_Date`, `checkout`.`payment_method` AS `payment_method`, CASE WHEN `checkout`.`payment_method` = 1 THEN 'Debit' WHEN `checkout`.`payment_method` = 2 THEN 'Kredit' WHEN `checkout`.`payment_method` = 3 THEN 'Bayar Di Tempat' ELSE NULL END AS `PaymentMethodChar` FROM `checkout``checkout`  ;
+CREATE VIEW `checkoutview` AS 
+SELECT 
+    `checkout`.`id_checkout`,
+    `checkout`.`id_akun`,
+    `checkout`.`total_amount`,
+    `checkout`.`payment_status`,
+    `checkout`.`checkout_Date`,
+    `checkout`.`payment_method`,
+    CASE 
+        WHEN `checkout`.`payment_method` = 'Debit/Kredit' THEN 'Debit/Kredit'
+        WHEN `checkout`.`payment_method` = 'Bayar Di Tempat' THEN 'Bayar Di Tempat'
+        ELSE NULL 
+    END AS `PaymentMethodChar`
+FROM `checkout`;
+
+
+
+
+
 
 --
 -- Indexes for dumped tables
