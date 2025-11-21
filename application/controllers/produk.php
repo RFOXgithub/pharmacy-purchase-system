@@ -145,7 +145,7 @@ class Produk extends CI_Controller
             return;
         }
 
-        $config['upload_path'] = 'D:\Aplikasi\XAMPP\htdocs\WebsiteShopping-Toko-Alat-Kesehatan\img\produk';
+        $config['upload_path'] = 'D:\Aplikasi\XAMPP7\htdocs\pharmacy-purchase-system\img\produk';
         $config['allowed_types'] = 'jpeg|jpg|png|gif|bmp';
         $config['max_size'] = 10000;
         $config['encrypt_name'] = TRUE;

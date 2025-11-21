@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']    = 'http://localhost/sistem-pembelian-obat/';
+$config['base_url']    = 'http://localhost/pharmacy-purchase-system/';
 
 /*
 |--------------------------------------------------------------------------
