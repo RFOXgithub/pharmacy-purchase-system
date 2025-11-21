@@ -1,7 +1,9 @@
 
-Update 21/11/2025!
+Update Error 21/11/2025!
 
-- Terdapat error pada proses input gambar pada tambah produk (gambar tidak terbaca setelah menambahkan gambar baru)
+- Gambar tidak tampil pada bagian pencarian
+- Error ketika mengganti gambar produk pada katalog
+- css pada Edit Checkout Data masih kurang rapi atau kepotong
 
 ---------------------
 
@@ -42,5 +44,8 @@ Sebelum menjalankan aplikasi, pastikan:
 1. Clone repository
 2. Import Database
 3. Nyalakan MySQL dan Apache jika menggunakan XAMPP
-4. Buka file pada browser
-5. Selesai
+4. Lakukan konfigurasi jiak terdapat error
+  - Konfigurasi pada config.php disesuaikan dengan nama folder
+  - Konfigurasi file produk.php di function addKatalog(), ubah uoload_path sesuai dengan path kalian ($config['upload_path'] = '...\htdocs\pharmacy-purchase-system\img\produk';)
+6. Buka file pada browser
+7. Selesai
