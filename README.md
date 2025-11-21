@@ -1,7 +1,8 @@
 
-Update 21/11/2025!
+Update Error 21/11/2025!
 
 - Terdapat error pada proses input gambar pada tambah produk (gambar tidak terbaca setelah menambahkan gambar baru)
+- Gambar tidak tampil pada bagian pencarian
 
 ---------------------
 
