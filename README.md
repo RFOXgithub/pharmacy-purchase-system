@@ -1,3 +1,10 @@
+
+Update 21/11/2025!
+
+- Terdapat error pada proses input gambar pada tambah produk (gambar tidak terbaca setelah menambahkan gambar baru)
+
+---------------------
+
 # Sistem Pembelian Alat Kesehatan
 
 Sistem ini adalah aplikasi **pembelian alat kesehatan** berbasis web, menggunakan:
